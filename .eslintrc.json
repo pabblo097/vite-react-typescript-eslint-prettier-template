@@ -1,31 +1,76 @@
+// Modified config created by Eli Elad Elrom
+// https://gist.github.com/EliEladElrom/450ce67da8f7a9322b87dee5a269b212
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb",
-        "prettier"
-    ],
+    "plugins": ["prettier", "@typescript-eslint"],
+    "extends": ["airbnb-typescript", "react-app", "prettier"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+      "project": "./tsconfig.json"
     },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
+    "settings": {
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true
+        }
+      }
+    },
     "rules": {
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-        "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
-        "import/no-unresolved": "off",
-        "import/extensions": "off",
-        "no-shadow": "off"
+      "object-curly-spacing": ["warn", "always"],
+      "no-unused-vars": [
+        "warn",
+        {
+          "vars": "all",
+          "args": "none"
+        }
+      ],
+      "@typescript-eslint/semi": [
+        "off"
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "vars": "all",
+          "args": "none"
+        }
+      ],
+      "@typescript-eslint/no-explicit-any": [
+        "error",
+        {
+          "ignoreRestArgs": true
+        }
+      ],
+      "max-len": [
+        "warn",
+        {
+          "code": 80,
+          "ignoreStrings": true,
+          "ignoreTemplateLiterals": true,
+          "ignoreComments": true
+        }
+      ],
+      "no-plusplus": [
+        "error",
+        {
+          "allowForLoopAfterthoughts": true
+        }
+      ],
+      "react/jsx-key": "error",
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "**/*.test.js",
+            "**/*.test.jsx",
+            "**/*.test.ts",
+            "**/*.test.tsx",
+            "src/tests/**/*"
+          ]
+        }
+      ],
+      "import/prefer-default-export": "off",
+      "react/jsx-boolean-value": "off",
+      "react/jsx-one-expression-per-line": "off",
+      "react/jsx-wrap-multilines": "off",
+      "react/destructuring-assignment": "off"
     }
-}
+  }
